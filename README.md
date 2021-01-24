@@ -1,5 +1,4 @@
-# MediScan
-Determining whether a tissue is malignant or not in breast mammograms with a novel approach.
+![alt text](https://github.com/mahandas/MediScan/blob/main/Screen%20Shot%202021-01-24%20at%203.14.28%20PM.png)
 
 ## Inspiration
 We noticed the lack of easy to use machine learning tools in medical imaging. So we decided to make MediScan, a tool for fast and easy detection of cancerous regions in breast mammograms. We believe MediScan as a screening tool will be very useful to radiologists.
