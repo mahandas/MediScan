@@ -1,28 +1,27 @@
-![alt text](https://github.com/mahandas/MediScan/blob/main/Screen%20Shot%202021-01-24%20at%203.14.28%20PM.png)
+# Whatsapp-Radiologist
+A chatbot built in python using Selenium module that can predict lung diseases through Xray. I'm using the ChexNet's amazing model to accomplish this task accurately.
 
-## Inspiration
-We noticed the lack of easy to use machine learning tools in medical imaging. So we decided to make MediScan, a tool for fast and easy detection of cancerous regions in breast mammograms. We believe MediScan as a screening tool will be very useful to radiologists.
+## Running the bot
+1. If you want to test the image captioning bot feature, make sure you have put the Azure API key in loreal.py to use the image captioning bot feature.
+2. Run the command <code>python3 bot.py</code>
+3. Scan the QR code with your phone to start whatsapp web on browser that pops up. (You may have to configure selenium geckodriver depending on the OS you are using. Specify geckodriver.exe's path in selenium inside bot.py file)
+4. Ask your friend to send <b>activate bot</b> to you.
+5. Now he can either send <b>show news</b> or send an Xray to start the diagnosis.
 
-## What it does
-MediScan is web application powered by Deep Learning Models for predicting cancerous regions in breast mammograms. A user, for example a radiologist, would first select images to upload, a threshold value and then press submit. On submission, our backend will pass on the images to our deep learning models and will generate new images with bounding boxes if any are found. The bounding boxes will be clearly visible on the output images alongside with their probabilities.
+Feel free to improve the code and add features.
 
-## How we built it
-We created a pipe for analysis of breast mammograms. We utilized 2 models. First an image goes through a Densenet model which predicts whether it is malignant or not. If malignant, the image is then passed into a FasterRCNN model which predicts cancerous regions with their corresponding probabilities. These models were both trained on DDSM dataset and were part of our research projects. We utilized PyTorch for training and inference of the models. We utilized Flask as the web framework for the web application.
 
-## Challenges we ran into
-Building a functional UI in a short period of time with authentication was a challenge. Generating new images from the predictions of our model was a difficult task. Building a machine learning pipe with 2 models was also a challenge.
+Currently the chatbot is only capable of the following tasks:
 
-## Accomplishments that we're proud of
-We are proud of a fully functioning product, with proper user authentication and elegant UI. We are also proud of the pace at which we were able to build the machine learning pipeline.
 
-## What we learned
-We learned about web application development and building machine learning pipelines. We also learned how to integrate the two to produce a well functioning tool.
+## 1. Lung Xray Diagnosis
+Using chexnet model. refer: https://github.com/brucechou1983/CheXNet-Keras for keras chexnet
 
-## What's next for MEdiScan: Breast Lesion detection
-MediScan can be used with any machine learning model and we plan to use it for various applications like Covid-19 classification of X-rays and MRI scan tumor segmentation in the future.
+and https://arxiv.org/pdf/1711.05225.pdf for the original paper.
 
-![alt text](https://github.com/mahandas/MediScan/blob/main/Screen%20Shot%202021-01-24%20at%201.00.10%20PM.png)
 
-![alt text](https://github.com/mahandas/MediScan/blob/main/Screen%20Shot%202021-01-24%20at%201.16.39%20PM.png)
+## 2. Image Captioning Bot
+A bot that captions the image sent to you using Microsoft's Azure platform. You will need an API key from Azure to run this. If you dont have one, you can make your own "caption" function and play around the image.
 
-![alt text](https://github.com/mahandas/MediScan/blob/main/Screen%20Shot%202021-01-24%20at%201.18.24%20PM.png)
+## 3.. News show
+Any message you will get after you run the bot having the word "show news" in it will be treated as a request for latest headlines. The bot then fetches the latest news. 
